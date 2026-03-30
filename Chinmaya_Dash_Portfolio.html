@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chinmaya Dash — Data & AI Leader Portfolio</title>
+<style>
+:root {
+  --navy: #1B3A6B; --navy2: #243F73; --navy-lt: #2D4F8A;
+  --teal: #0D7377; --teal2: #0F8A8F; --teal-lt: #E1F5EE; --teal-m: #9FE1CB; --teal-d: #085041;
+  --gold: #D4A017; --gold-lt: #FEF3D0;
+  --body: #2D3748; --muted: #718096; --light: #F7F9FC; --white: #FFFFFF;
+  --border: #E2E8F0; --shadow: 0 4px 24px rgba(27,58,107,0.10);
+  --radius: 12px; --radius-sm: 8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--light);color:var(--body);line-height:1.6}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;width:100%;background:rgba(27,58,107,0.97);backdrop-filter:blur(8px);z-index:100;padding:0 40px}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{color:#fff;font-size:17px;font-weight:700;letter-spacing:0.3px}
+.nav-logo span{color:var(--teal-m)}
+.nav-links{display:flex;gap:6px}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;transition:all .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,0.12)}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#0D3060 55%,#0A2545 100%);padding:120px 40px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:rgba(13,115,119,0.12);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-100px;left:10%;width:300px;height:300px;border-radius:50%;background:rgba(13,115,119,0.08);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;position:relative;z-index:1}
+.hero-avatar{width:140px;height:140px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:46px;font-weight:800;color:#fff;border:4px solid rgba(159,225,203,0.4);letter-spacing:1px;flex-shrink:0}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(13,115,119,0.25);border:1px solid rgba(159,225,203,0.3);color:var(--teal-m);font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:16px;letter-spacing:0.5px}
+.hero-badge::before{content:'●';font-size:8px;color:#5DCAA5;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{font-size:46px;font-weight:800;color:#fff;line-height:1.1;margin-bottom:12px;letter-spacing:-0.5px}
+.hero h1 span{color:var(--teal-m)}
+.hero-tagline{font-size:16px;color:rgba(255,255,255,0.75);margin-bottom:24px;line-height:1.6}
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.hero-pill{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.88);font-size:12.5px;font-weight:500;padding:5px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.15)}
+.hero-pill.hot{background:rgba(13,115,119,0.3);border-color:rgba(159,225,203,0.4);color:var(--teal-m)}
+.hero-contacts{display:flex;flex-wrap:wrap;gap:16px}
+.hero-contact{color:rgba(255,255,255,0.65);font-size:13px;display:flex;align-items:center;gap:6px;text-decoration:none;transition:color .2s}
+.hero-contact:hover{color:var(--teal-m)}
+.hero-contact svg{opacity:0.7;flex-shrink:0}
+
+/* ── METRICS STRIP ── */
+.metrics-strip{background:var(--teal);padding:0}
+.metrics-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr)}
+.metric-box{padding:22px 16px;text-align:center;border-right:1px solid rgba(255,255,255,0.15);transition:background .2s}
+.metric-box:last-child{border-right:none}
+.metric-box:hover{background:rgba(255,255,255,0.08)}
+.metric-num{font-size:28px;font-weight:800;color:#fff;line-height:1;margin-bottom:5px}
+.metric-lbl{font-size:11px;color:rgba(255,255,255,0.72);font-weight:400;letter-spacing:0.3px}
+
+/* ── SECTIONS ── */
+section{padding:80px 40px}
+section:nth-child(even){background:#fff}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-header{margin-bottom:48px}
+.section-tag{display:inline-block;background:var(--teal-lt);color:var(--teal-d);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.section-title{font-size:32px;font-weight:800;color:var(--navy);line-height:1.2}
+.section-title span{color:var(--teal)}
+.section-desc{font-size:15px;color:var(--muted);margin-top:8px;max-width:640px}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.about-text{font-size:15px;color:var(--body);line-height:1.75}
+.about-text p{margin-bottom:16px}
+.about-text strong{color:var(--navy)}
+.about-highlights{display:flex;flex-direction:column;gap:14px}
+.highlight-card{background:var(--light);border-left:4px solid var(--teal);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 18px}
+.highlight-card h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.highlight-card p{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* ── VALUE PROPOSITION ── */
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.value-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:all .25s;position:relative;overflow:hidden}
+.value-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--teal)}
+.value-card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.value-icon{width:44px;height:44px;border-radius:10px;background:var(--teal-lt);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.value-icon svg{color:var(--teal)}
+.value-card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.value-card p{font-size:13.5px;color:var(--muted);line-height:1.6}
+
+/* ── IMPACT / ACHIEVEMENTS ── */
+.impact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.impact-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:all .2s}
+.impact-card:hover{box-shadow:var(--shadow);border-color:var(--teal)}
+.impact-stat{font-size:28px;font-weight:800;color:var(--teal);min-width:80px;line-height:1;padding-top:2px}
+.impact-content h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.impact-content p{font-size:13px;color:var(--muted);line-height:1.55}
+.impact-tag{display:inline-block;font-size:10px;font-weight:600;background:var(--teal-lt);color:var(--teal-d);padding:2px 8px;border-radius:10px;margin-top:8px}
+
+/* ── EXPERIENCE TIMELINE ── */
+.timeline{position:relative;padding-left:32px}
+.timeline::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--teal),rgba(13,115,119,0.1))}
+.timeline-item{position:relative;margin-bottom:40px}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-dot{position:absolute;left:-38px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--teal);border:3px solid var(--white);box-shadow:0 0 0 2px var(--teal)}
+.timeline-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;transition:all .2s}
+.timeline-card:hover{box-shadow:var(--shadow)}
+.tl-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;flex-wrap:wrap;gap:8px}
+.tl-title{font-size:16px;font-weight:700;color:var(--navy)}
+.tl-dates{font-size:12px;color:var(--muted);background:var(--light);padding:3px 10px;border-radius:20px;white-space:nowrap}
+.tl-company{font-size:13.5px;font-weight:600;color:var(--teal);margin-bottom:4px}
+.tl-meta{font-size:12px;color:var(--muted);margin-bottom:12px;display:flex;flex-wrap:wrap;gap:10px}
+.tl-meta span{background:var(--light);padding:2px 8px;border-radius:10px;font-size:11.5px}
+.tl-desc{font-size:13.5px;color:var(--body);line-height:1.65;margin-bottom:14px}
+.tl-bullets{display:flex;flex-direction:column;gap:6px}
+.tl-bullet{font-size:13px;color:var(--muted);padding-left:14px;position:relative;line-height:1.5}
+.tl-bullet::before{content:'▸';position:absolute;left:0;color:var(--teal);font-size:10px;top:3px}
+
+/* ── EXPERTISE GRID ── */
+.expertise-outer{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.expertise-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.expertise-card h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--teal-lt)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:7px}
+.skill-tag{font-size:12px;font-weight:500;padding:4px 11px;border-radius:20px}
+.st-teal  {background:var(--teal-lt);color:var(--teal-d)}
+.st-navy  {background:#E8EDF6;color:var(--navy)}
+.st-gray  {background:#F1F3F6;color:#4A5568}
+.st-amber {background:#FEF3E2;color:#92400E}
+.st-gold  {background:var(--gold-lt);color:#7A5800}
+
+/* ── PROJECTS / USE CASES ── */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.project-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:all .25s;display:flex;flex-direction:column}
+.project-card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.project-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:18px}
+.pi-teal{background:var(--teal-lt)}
+.pi-navy{background:#E8EDF6}
+.pi-amber{background:#FEF3E2}
+.pi-gold{background:var(--gold-lt)}
+.project-card h3{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.project-card p{font-size:13px;color:var(--muted);line-height:1.6;flex:1}
+.project-outcome{margin-top:14px;font-size:12.5px;font-weight:700;color:var(--teal);background:var(--teal-lt);padding:5px 10px;border-radius:6px;display:inline-block}
+
+/* ── CERTIFICATIONS ── */
+.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cert-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;transition:all .2s}
+.cert-card:hover{box-shadow:var(--shadow);border-color:var(--teal)}
+.cert-logo{width:48px;height:48px;border-radius:10px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;letter-spacing:0.5px}
+.cl-db{background:linear-gradient(135deg,#E8593C,#FF3621)}
+.cl-aws{background:linear-gradient(135deg,#FF9900,#FF6600)}
+.cl-safe{background:linear-gradient(135deg,#0A6BB5,#0D5A9E)}
+.cl-cspo{background:linear-gradient(135deg,#009FDA,#007AB8)}
+.cl-alt{background:linear-gradient(135deg,#0078BE,#00669E)}
+.cl-isb{background:linear-gradient(135deg,#8B1A1A,#6B1414)}
+.cl-tx{background:linear-gradient(135deg,#BF5700,#9E4700)}
+.cert-card h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.cert-card p{font-size:11.5px;color:var(--muted)}
+.cert-card .cert-year{font-size:11px;color:var(--teal);font-weight:600;margin-top:4px}
+
+/* ── TESTIMONIALS / PHILOSOPHY ── */
+.philosophy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.philosophy-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.quote-mark{font-size:40px;color:var(--teal-lt);line-height:1;margin-bottom:8px;font-family:Georgia,serif}
+.philosophy-card blockquote{font-size:14px;color:var(--body);line-height:1.7;font-style:italic;margin-bottom:14px}
+.philosophy-card cite{font-size:12px;font-weight:600;color:var(--teal);font-style:normal}
+
+/* ── EDUCATION ── */
+.edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.edu-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;gap:18px;align-items:flex-start}
+.edu-badge{width:52px;height:52px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;text-align:center;letter-spacing:0.3px;line-height:1.2}
+.eb-isb{background:linear-gradient(135deg,#8B1A1A,#6B1414)}
+.eb-tx {background:linear-gradient(135deg,#BF5700,#9E4700)}
+.eb-kiit{background:linear-gradient(135deg,#1B3A6B,#0D3060)}
+.edu-content h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.edu-content p{font-size:13px;color:var(--muted);margin-bottom:4px}
+.edu-year{font-size:12px;font-weight:600;color:var(--teal)}
+
+/* ── CTA ── */
+.cta-section{background:linear-gradient(135deg,var(--navy) 0%,#0A2545 100%);padding:80px 40px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:rgba(13,115,119,0.12)}
+.cta-section h2{font-size:36px;font-weight:800;color:#fff;margin-bottom:12px;position:relative}
+.cta-section p{font-size:16px;color:rgba(255,255,255,0.7);margin-bottom:32px;position:relative}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
+.btn-primary{background:var(--teal);color:#fff;padding:14px 32px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s;border:2px solid var(--teal)}
+.btn-primary:hover{background:var(--teal2);border-color:var(--teal2)}
+.btn-outline{background:transparent;color:#fff;padding:14px 32px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s;border:2px solid rgba(255,255,255,0.4)}
+.btn-outline:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.7)}
+.cta-contacts{display:flex;justify-content:center;gap:32px;margin-top:32px;flex-wrap:wrap}
+.cta-contact{color:rgba(255,255,255,0.65);font-size:13.5px;display:flex;align-items:center;gap:7px;text-decoration:none;transition:color .2s}
+.cta-contact:hover{color:var(--teal-m)}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:24px 40px;text-align:center}
+footer p{color:rgba(255,255,255,0.45);font-size:12.5px}
+footer span{color:var(--teal-m)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-inner,.about-grid,.value-grid,.impact-grid,.expertise-outer,.projects-grid,.cert-grid,.philosophy-grid,.edu-grid{grid-template-columns:1fr}
+  .hero-avatar{display:none}
+  .metrics-grid{grid-template-columns:repeat(3,1fr)}
+  .hero h1{font-size:32px}
+  nav{padding:0 20px}
+  section{padding:60px 20px}
+  .hero{padding:100px 20px 60px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Chinmaya <span>Dash</span></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#impact">Impact</a>
+      <a href="#experience">Experience</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#projects">Use Cases</a>
+      <a href="#certifications">Credentials</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Available for new opportunities</div>
+      <h1>Data & AI Leader<br><span>Transforming Enterprises</span><br>Through Intelligence</h1>
+      <p class="hero-tagline">13 years · $25M+ business impact · 50+ team · 10,000+ AI users enabled<br>
+      GenAI · Conversational AI · Agentic AI · Data Monetization</p>
+      <div class="hero-pills">
+        <span class="hero-pill hot">Head of Data & AI</span>
+        <span class="hero-pill hot">Director of Analytics</span>
+        <span class="hero-pill hot">VP Analytics</span>
+        <span class="hero-pill hot">Principal Consultant</span>
+        <span class="hero-pill">Bengaluru, India</span>
+        <span class="hero-pill">Open to Pan-India & Hybrid</span>
+      </div>
+      <div class="hero-contacts">
+        <a href="mailto:Chinmayadash.dash76@gmail.com" class="hero-contact">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Chinmayadash.dash76@gmail.com
+        </a>
+        <a href="tel:+917899508986" class="hero-contact">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +91 7899 508 986
+        </a>
+        <a href="https://linkedin.com/in/chinmayadash" target="_blank" class="hero-contact">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/chinmayadash
+        </a>
+      </div>
+    </div>
+    <div class="hero-avatar">CD</div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<div class="metrics-strip">
+  <div class="metrics-grid">
+    <div class="metric-box"><div class="metric-num">$25M+</div><div class="metric-lbl">Business Impact</div></div>
+    <div class="metric-box"><div class="metric-num">50+</div><div class="metric-lbl">Team Led</div></div>
+    <div class="metric-box"><div class="metric-num">10,000+</div><div class="metric-lbl">AI Users Enabled</div></div>
+    <div class="metric-box"><div class="metric-num">13 yrs</div><div class="metric-lbl">Experience</div></div>
+    <div class="metric-box"><div class="metric-num">3×</div><div class="metric-lbl">0→1 Org Builds</div></div>
+    <div class="metric-box"><div class="metric-num">$17M+</div><div class="metric-lbl">Portfolio Governed</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">About Me</div>
+      <h2 class="section-title">Turning Data into <span>Measurable Value</span></h2>
+      <p class="section-desc">A practitioner who leads from the front — strategy to execution, platform to adoption, team to impact.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I am a <strong>Data, Analytics & AI Leader</strong> with 13 years of experience building and scaling enterprise data functions that create real business value — not just dashboards, but decisions; not just models, but measurable outcomes.</p>
+        <p>My career spans three industries — <strong>Commercial/Manufacturing (TE Connectivity)</strong>, <strong>Financial Services (Silicon Valley Bank, JP Morgan, KPMG)</strong>, and <strong>Life Sciences (Novartis)</strong> — giving me the breadth to speak the language of any business domain and the depth to architect solutions that scale.</p>
+        <p>Most recently at TE Connectivity, I led the Data, Analytics & AI function for a multi-billion-dollar Commercial Excellence BU — managing a <strong>50+ person global team</strong>, owning a <strong>$17M+ analytics portfolio</strong>, deploying <strong>Conversational AI for 10,000+ users</strong>, and elevating analytics maturity from 46% to 88% in a single year.</p>
+        <p>I believe data capability without business outcome is noise. Every platform I build, every team I lead, and every AI system I deploy is anchored in a single question: <strong>"What decision does this enable, and what is it worth?"</strong></p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <h4>My leadership philosophy</h4>
+          <p>Build with purpose, govern with discipline, scale with people. Great data organizations are built on trust — trust in the data, trust in the team, and trust in the process.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>What makes me different</h4>
+          <p>I've built Data & AI organizations from zero to enterprise maturity three times across different industries. I know what good looks like at every stage of the maturity curve.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>My approach to GenAI</h4>
+          <p>Responsible AI governance before the first prompt. Semantic models before the first query. Adoption before the first KPI. Technology is the easy part — trust is what scales.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Why I am exploring new opportunities</h4>
+          <p>After delivering TE Connectivity's multi-year Data & AI transformation, I am seeking a new challenge — either at greater scale, in a new industry context, or in an advisory capacity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROPOSITION -->
+<section style="background:#fff">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Value Proposition</div>
+      <h2 class="section-title">Three Things I Bring to <span>Every Organisation</span></h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Strategic Clarity</h3>
+        <p>I translate ambiguous business problems into crisp data & AI strategies — defining operating models, governance frameworks, and 3-year roadmaps that align with P&L goals. I've owned a $17M+ analytics portfolio and eliminated 30%+ low-value initiatives through disciplined demand governance.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Technical Credibility</h3>
+        <p>Hands-on architecture and delivery across AWS, Databricks (Lakehouse, MLflow, Unity Catalog), Snowflake, and Power BI. Triple Databricks certified. ISB Chief Digital & AI Officer (2026). I can speak to engineers and the board in the same meeting.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Execution at Scale</h3>
+        <p>I've built Data & AI organizations from zero three times — hiring, structuring, and developing 50+ person global teams across Data Engineering, Analytics, Data Science, and BI. I don't just design the operating model; I run it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Impact</div>
+      <h2 class="section-title">Results That <span>Speak for Themselves</span></h2>
+      <p class="section-desc">Every number below is tied to a specific initiative, platform, or transformation programme — not estimates.</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-stat">$25M+</div>
+        <div class="impact-content">
+          <h4>Total Business Impact Delivered</h4>
+          <p>Data monetization through product-led analytics transformation across TE Connectivity, Silicon Valley Bank, and Novartis — spanning revenue growth, cost optimization, and productivity gains.</p>
+          <span class="impact-tag">Cross-company</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-stat">10,000+</div>
+        <div class="impact-content">
+          <h4>Global Users — Conversational AI</h4>
+          <p>Deployed governed natural-language analytics into the Commercial Excellence platform at TE Connectivity with responsible AI governance frameworks. Went from 40% to 80%+ active usage in 6 weeks.</p>
+          <span class="impact-tag">TE Connectivity</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-stat">46→88%</div>
+        <div class="impact-content">
+          <h4>Analytics Maturity Uplift — 12 Months</h4>
+          <p>Redesigned the Target Operating Model (TOM), consolidated platforms, and instituted demand governance at TE Connectivity — moving from reactive reporting to proactive AI-driven decision support.</p>
+          <span class="impact-tag">TE Connectivity</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-stat">$1.1M+</div>
+        <div class="impact-content">
+          <h4>Annual Savings — Platform Rationalization</h4>
+          <p>Decommissioned legacy Alteryx, SQL Server, and Access workflows. Eliminated 1,500+ manual hours/month and 500+ automated workflow hours/month through modern Databricks-native pipelines.</p>
+          <span class="impact-tag">TE Connectivity</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-stat">$17M+</div>
+        <div class="impact-content">
+          <h4>Analytics Portfolio Governed</h4>
+          <p>Established enterprise TOM and demand governance, optimizing a $17M+ analytics investment portfolio. Eliminated 30%+ low-value initiatives through ROI-based prioritization framework.</p>
+          <span class="impact-tag">TE Connectivity</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-stat">3×</div>
+        <div class="impact-content">
+          <h4>Data Orgs Built from Zero</h4>
+          <p>Built globally distributed, cross-functional Data & AI organizations from 0→1 at TE Connectivity (50+ team), Silicon Valley Bank (BI/DS/DE/QA/UX), and Novartis (25,000-user enterprise platform).</p>
+          <span class="impact-tag">Multi-company</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-stat">25,000+</div>
+        <div class="impact-content">
+          <h4>Enterprise BI Platform Users — Novartis</h4>
+          <p>Served as Technology Owner of Novartis' enterprise Qlik BI platform for the global Drug Development division. Delivered 18+ analytics products with 40%+ enterprise adoption uplift.</p>
+          <span class="impact-tag">Novartis</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-stat">$500K+</div>
+        <div class="impact-content">
+          <h4>Productivity Gains — Novartis</h4>
+          <p>Drove automation-led product excellence: improved quality by 35%+, reduced release cycles by 25%, eliminated 900+ manual hours/month and delivered $500K+ in productivity gains at Novartis.</p>
+          <span class="impact-tag">Novartis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background:#fff">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Career Timeline</div>
+      <h2 class="section-title">13 Years of <span>Enterprise Leadership</span></h2>
+      <p class="section-desc">A progressive journey across Commercial, Financial Services, and Life Sciences — always at the intersection of data strategy, AI delivery, and team scale.</p>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div class="tl-title">Head of Data, Analytics & AI &nbsp;|&nbsp; Site Lead & Operational Manager — Spoke Teams</div>
+            <div class="tl-dates">Jun 2023 – Mar 2026</div>
+          </div>
+          <div class="tl-company">TE Connectivity &nbsp;·&nbsp; Bengaluru, India</div>
+          <div class="tl-meta">
+            <span>Senior Manager | 50+ People</span><span>$17M+ Portfolio</span><span>Commercial Excellence BU</span><span>Multi-billion dollar business</span>
+          </div>
+          <div class="tl-desc">Led enterprise Data & AI strategy for TE Connectivity's Commercial Excellence & Operations BU — a multi-billion-dollar global business. Simultaneously served as India Site Lead for 2–3 spoke development teams, defining the hub-and-spoke operating model and overseeing delivery standards, governance, and operational management for 30 spoke team members.</div>
+          <div class="tl-bullets">
+            <div class="tl-bullet">Acted as Head of Data, Analytics & AI for the Commercial BU — partnering with C-suite to define strategy and investment priorities while leading a 22-person cross-functional team of Data Engineers, Analytics Engineers, Data Scientists, PMs, and BI Developers</div>
+            <div class="tl-bullet">Defined and executed 3-year Data & AI roadmap aligned to business growth and operational efficiency goals</div>
+            <div class="tl-bullet">Delivered 20+ AI/analytics products — Customer 360, churn, pricing, segmentation, demand forecasting, and GenAI document intelligence — driving $25M+ business impact</div>
+            <div class="tl-bullet">Owned Commercial Excellence Data, Analytics and AI platform (AWS + Databricks + Power BI), enabling governed self-service analytics</div>
+            <div class="tl-bullet">Led Gen AI and Conversational AI adoption with responsible AI governance frameworks for 10,000+ users</div>
+            <div class="tl-bullet">Elevated analytics maturity from 46% → 88% in 12 months through TOM redesign and demand governance</div>
+            <div class="tl-bullet">Modernized legacy ecosystem (Alteryx, SQL Server, Access), saving $267K+ annually and automating 500+ hours/month</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div class="tl-title">Manager (L2) — Business Intelligence & Data Analytics</div>
+            <div class="tl-dates">Apr 2022 – Jun 2023</div>
+          </div>
+          <div class="tl-company">Silicon Valley Bank &nbsp;·&nbsp; Bengaluru, India</div>
+          <div class="tl-meta"><span>0→1 Org Build</span><span>Global Services Organization</span><span>Strategy & Transformation Office</span></div>
+          <div class="tl-desc">Built enterprise analytics function and product-led operating model for the Global Services organization from zero — serving as strategic analytics partner to the Strategy & Transformation Office.</div>
+          <div class="tl-bullets">
+            <div class="tl-bullet">Defined and executed 3-year enterprise Data, Analytics & AI Product roadmap aligned to Global Services BU strategy</div>
+            <div class="tl-bullet">Built globally distributed cross-functional organization (BI, Data Engineering, Data Science, QA, UX) from 0→1</div>
+            <div class="tl-bullet">Architected enterprise-grade data platforms, semantic models, and integration pipelines for governed, scalable analytics</div>
+            <div class="tl-bullet">Implemented intelligent automation frameworks eliminating 100+ hours/month and driving $40K+ in productivity gains</div>
+            <div class="tl-bullet">Institutionalized enterprise analytics standards, governance frameworks, and KPI models across regions and functions</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div class="tl-title">Solution Design Expert — Data, Analytics & AI (GDD)</div>
+            <div class="tl-dates">May 2019 – Apr 2022</div>
+          </div>
+          <div class="tl-company">Novartis &nbsp;·&nbsp; Hyderabad, India</div>
+          <div class="tl-meta"><span>25,000+ Global Users</span><span>Enterprise Qlik Platform</span><span>Drug Development CoE</span><span>Corporate Analytics CoE</span></div>
+          <div class="tl-desc">Technology Owner of Novartis' Enterprise BI & Data Visualization Platform (Qlik) serving 25,000+ global users. Led GDD BI & Analytics portfolio as part of the Corporate CoE.</div>
+          <div class="tl-bullets">
+            <div class="tl-bullet">Delivered 18+ high-impact Data & Analytics products — increasing enterprise adoption by 40%+ across Drug Development</div>
+            <div class="tl-bullet">Led and scaled global cross-functional BI and Analytics organization through talent development, capability uplift, and a product-led operating model</div>
+            <div class="tl-bullet">Drove automation-led excellence: quality +35%, release cycles -25%, eliminated 900+ manual hours/month, $500K+ productivity gains</div>
+            <div class="tl-bullet">Defined and executed BI & Analytics product roadmap tightly aligned to Drug Development BU strategy</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--muted);box-shadow:0 0 0 2px var(--muted)"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div class="tl-title">Team Lead — Business Intelligence</div>
+            <div class="tl-dates">Jan 2018 – Apr 2019</div>
+          </div>
+          <div class="tl-company">JP Morgan & Chase &nbsp;·&nbsp; India</div>
+          <div class="tl-meta"><span>BFSI</span><span>Trading & Risk Analytics</span></div>
+          <div class="tl-desc">Led BI delivery and team for financial analytics products across trading and risk domains. Managed cross-functional stakeholder reporting and analytical delivery for global financial services operations.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--muted);box-shadow:0 0 0 2px var(--muted)"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div class="tl-title">Senior Developer — Business Intelligence</div>
+            <div class="tl-dates">Feb 2017 – Jan 2018</div>
+          </div>
+          <div class="tl-company">KPMG &nbsp;·&nbsp; India</div>
+          <div class="tl-meta"><span>Consulting</span><span>Financial Services Clients</span></div>
+          <div class="tl-desc">Developed and maintained BI solutions for financial services client engagements. Supported data quality, reporting automation, and dashboard delivery across audit and advisory mandates.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--muted);box-shadow:0 0 0 2px var(--muted)"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div class="tl-title">Developer — Business Intelligence</div>
+            <div class="tl-dates">Aug 2013 – Feb 2017</div>
+          </div>
+          <div class="tl-company">Tata Consultancy Services (TCS) &nbsp;·&nbsp; India</div>
+          <div class="tl-meta"><span>Enterprise Clients</span><span>BFSI & Telecom</span></div>
+          <div class="tl-desc">Delivered BI and analytics solutions for enterprise clients. Built ETL pipelines, dashboards, and reporting frameworks across BFSI and telecom domains — foundation of a 13-year analytics career.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Expertise</div>
+      <h2 class="section-title">Full-Spectrum <span>Data & AI Capability</span></h2>
+      <p class="section-desc">From strategy to stack — a unique combination of business leadership and technical depth.</p>
+    </div>
+    <div class="expertise-outer">
+      <div class="expertise-card">
+        <h3>Strategy & Leadership</h3>
+        <div class="skill-tags">
+          <span class="skill-tag st-teal">Enterprise Data Strategy</span>
+          <span class="skill-tag st-teal">Data Monetization</span>
+          <span class="skill-tag st-teal">Operating Model Design</span>
+          <span class="skill-tag st-teal">Hub & Spoke / CoE</span>
+          <span class="skill-tag st-teal">Portfolio Governance</span>
+          <span class="skill-tag st-teal">Demand Governance</span>
+          <span class="skill-tag st-teal">ROI-based Prioritization</span>
+          <span class="skill-tag st-teal">C-suite Advisory</span>
+          <span class="skill-tag st-teal">Analytical CoE Leadership</span>
+          <span class="skill-tag st-teal">P&L Ownership</span>
+        </div>
+      </div>
+      <div class="expertise-card">
+        <h3>AI & GenAI</h3>
+        <div class="skill-tags">
+          <span class="skill-tag st-navy">Generative AI (GenAI)</span>
+          <span class="skill-tag st-navy">LLMs & RAG Pipelines</span>
+          <span class="skill-tag st-navy">Conversational AI</span>
+          <span class="skill-tag st-navy">Agentic AI</span>
+          <span class="skill-tag st-navy">NLP</span>
+          <span class="skill-tag st-navy">MLOps</span>
+          <span class="skill-tag st-navy">Responsible AI Governance</span>
+          <span class="skill-tag st-navy">Machine Learning</span>
+          <span class="skill-tag st-navy">Forecasting</span>
+          <span class="skill-tag st-navy">Scalable AI Systems</span>
+        </div>
+      </div>
+      <div class="expertise-card">
+        <h3>Platforms & Cloud</h3>
+        <div class="skill-tags">
+          <span class="skill-tag st-amber">AWS</span>
+          <span class="skill-tag st-amber">Databricks (Lakehouse · MLflow · Unity Catalog)</span>
+          <span class="skill-tag st-amber">Snowflake</span>
+          <span class="skill-tag st-amber">Azure</span>
+          <span class="skill-tag st-amber">Power BI</span>
+          <span class="skill-tag st-amber">Tableau</span>
+          <span class="skill-tag st-amber">Qlik</span>
+          <span class="skill-tag st-amber">Looker</span>
+        </div>
+      </div>
+      <div class="expertise-card">
+        <h3>Data Engineering & Governance</h3>
+        <div class="skill-tags">
+          <span class="skill-tag st-gray">SQL · Python · Spark · PySpark</span>
+          <span class="skill-tag st-gray">ETL/ELT Pipelines</span>
+          <span class="skill-tag st-gray">Lakehouse Architecture</span>
+          <span class="skill-tag st-gray">Data Mesh</span>
+          <span class="skill-tag st-gray">Data Contracts</span>
+          <span class="skill-tag st-gray">Data Observability</span>
+          <span class="skill-tag st-gray">Data Lineage & Metadata</span>
+          <span class="skill-tag st-gray">Single Source of Truth</span>
+          <span class="skill-tag st-gray">KPI Frameworks</span>
+          <span class="skill-tag st-gray">Semantic Modeling</span>
+        </div>
+      </div>
+      <div class="expertise-card">
+        <h3>People & Organisation</h3>
+        <div class="skill-tags">
+          <span class="skill-tag st-gold">50+ Global Team Leadership</span>
+          <span class="skill-tag st-gold">0→1 Org Building</span>
+          <span class="skill-tag st-gold">Hub & Spoke Site Leadership</span>
+          <span class="skill-tag st-gold">Agile POD Delivery Model</span>
+          <span class="skill-tag st-gold">Talent Development</span>
+          <span class="skill-tag st-gold">Succession Planning</span>
+          <span class="skill-tag st-gold">Capacity Planning</span>
+          <span class="skill-tag st-gold">Change Management</span>
+        </div>
+      </div>
+      <div class="expertise-card">
+        <h3>Business Domains</h3>
+        <div class="skill-tags">
+          <span class="skill-tag st-teal">Commercial Analytics</span>
+          <span class="skill-tag st-teal">Customer 360</span>
+          <span class="skill-tag st-teal">Pricing Optimization</span>
+          <span class="skill-tag st-teal">Next Best Action (NBA)</span>
+          <span class="skill-tag st-teal">Churn Prediction</span>
+          <span class="skill-tag st-teal">Demand Forecasting</span>
+          <span class="skill-tag st-teal">NPS Analytics</span>
+          <span class="skill-tag st-navy">Life Sciences & Healthcare</span>
+          <span class="skill-tag st-navy">BFSI & Financial Risk</span>
+          <span class="skill-tag st-navy">Operations & Supply Chain</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS / USE CASES -->
+<section id="projects" style="background:#fff">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Signature Use Cases</div>
+      <h2 class="section-title">AI & Analytics <span>in Action</span></h2>
+      <p class="section-desc">Representative programmes and use cases delivered across three industries — each tied to a measurable business outcome.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-icon pi-teal">🤖</div>
+        <h3>Enterprise Conversational AI — 10,000+ Users</h3>
+        <p>Deployed governed natural-language analytics platform for TE Connectivity's Commercial Excellence BU. Built responsible AI governance frameworks, semantic model layer on Databricks, and drove adoption from 40% to 80%+ in 6 weeks post-launch.</p>
+        <span class="project-outcome">Impact: 10,000+ users · Insight-to-decision in minutes</span>
+      </div>
+      <div class="project-card">
+        <div class="project-icon pi-navy">📊</div>
+        <h3>GenAI Document Intelligence — 3,000+ PDFs</h3>
+        <p>Designed and delivered GenAI-driven document intelligence pipeline processing 3,000+ commercial PDFs into structured, SAP-integrated insights. Eliminated manual document review workflows and enabled automated contract and pricing analytics.</p>
+        <span class="project-outcome">Impact: $267K+ annual savings · 500+ hrs/month automated</span>
+      </div>
+      <div class="project-card">
+        <div class="project-icon pi-amber">🎯</div>
+        <h3>Analytics Maturity Transformation</h3>
+        <p>Designed and implemented Target Operating Model (TOM) for TE Connectivity's Commercial Analytics function. Introduced demand governance, ROI-based portfolio prioritization, and a hub-and-spoke delivery model across global spoke teams.</p>
+        <span class="project-outcome">Impact: 46% → 88% maturity · $17M+ portfolio optimized</span>
+      </div>
+      <div class="project-card">
+        <div class="project-icon pi-teal">💰</div>
+        <h3>Commercial AI Products Suite — Pricing & Churn</h3>
+        <p>Built 20+ AI/analytics products covering pricing optimization, churn prediction, cross-sell/upsell scoring, demand forecasting, and Customer 360. Each product delivered with an MLOps-ready pipeline on Databricks and integrated into executive workflows.</p>
+        <span class="project-outcome">Impact: $25M+ business impact across portfolio</span>
+      </div>
+      <div class="project-card">
+        <div class="project-icon pi-gold">🏗️</div>
+        <h3>Enterprise Data Platform — AWS + Databricks</h3>
+        <p>Owned end-to-end modernization of TE Connectivity's Commercial data ecosystem — migrating from Alteryx/SQL Server/Access to a modern Databricks Lakehouse on AWS. Established Unity Catalog, semantic models, and governed self-service analytics.</p>
+        <span class="project-outcome">Impact: $1.1M+ saved · 1,500+ manual hours eliminated/month</span>
+      </div>
+      <div class="project-card">
+        <div class="project-icon pi-navy">🔬</div>
+        <h3>Novartis Enterprise BI Platform — 25,000 Users</h3>
+        <p>Served as Technology Owner of Novartis' enterprise Qlik BI platform for the Drug Development division. Delivered 18+ analytics products, standardized data governance across regions, and drove 40%+ enterprise adoption uplift through product-led delivery.</p>
+        <span class="project-outcome">Impact: 25,000+ users · $500K+ productivity gains</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS & EDUCATION -->
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Credentials</div>
+      <h2 class="section-title">Certifications & <span>Education</span></h2>
+      <p class="section-desc">Continuous learning as a leadership discipline — from technical platform certifications to executive AI programmes.</p>
+    </div>
+
+    <div class="section-header" style="margin-bottom:24px">
+      <div class="section-tag">Certifications</div>
+    </div>
+    <div class="cert-grid" style="margin-bottom:48px">
+      <div class="cert-card">
+        <div class="cert-logo cl-db">DB</div>
+        <h4>GenAI Engineer</h4>
+        <p>Databricks Certified</p>
+        <div class="cert-year">Active</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo cl-db">DB</div>
+        <h4>Machine Learning Associate</h4>
+        <p>Databricks Certified</p>
+        <div class="cert-year">Active</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo cl-db">DB</div>
+        <h4>Data Engineer Associate</h4>
+        <p>Databricks Certified</p>
+        <div class="cert-year">Active</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo cl-aws">AWS</div>
+        <h4>Cloud Practitioner</h4>
+        <p>Amazon Web Services</p>
+        <div class="cert-year">Active</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo cl-safe">SA</div>
+        <h4>SAFe Agilist 5.0</h4>
+        <p>Scaled Agile Framework</p>
+        <div class="cert-year">Active</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo cl-cspo">SC</div>
+        <h4>Scrum Product Owner</h4>
+        <p>CSPO Certified</p>
+        <div class="cert-year">Active</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo cl-alt">AX</div>
+        <h4>Alteryx Designer</h4>
+        <p>Alteryx Certified</p>
+        <div class="cert-year">Active</div>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-bottom:24px">
+      <div class="section-tag">Education</div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-badge eb-isb">ISB</div>
+        <div class="edu-content">
+          <h4>Chief Digital & AI Officer Program</h4>
+          <p>Indian School of Business (ISB) — Hyderabad</p>
+          <p style="font-size:13px;color:var(--body);margin-top:6px">Executive programme covering AI strategy, digital transformation, and C-suite leadership for the data-driven enterprise.</p>
+          <div class="edu-year">2026</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-badge eb-tx">TX</div>
+        <div class="edu-content">
+          <h4>PG AI for Leaders</h4>
+          <p>Texas McCombs School of Business — UT Austin</p>
+          <p style="font-size:13px;color:var(--body);margin-top:6px">Post-graduate programme focused on enterprise AI adoption, strategy, and leadership decision-making with AI.</p>
+          <div class="edu-year">2024</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-badge eb-kiit">KIIT</div>
+        <div class="edu-content">
+          <h4>B.Tech — Computer Science & Engineering</h4>
+          <p>KIIT University — Bhubaneswar, Odisha</p>
+          <p style="font-size:13px;color:var(--body);margin-top:6px">Full-time undergraduate degree in Computer Science. Foundation of a 13-year career in data, analytics, and AI.</p>
+          <div class="edu-year">2013</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-badge eb-kiit">KIIT</div>
+        <div class="edu-content">
+          <h4>Diploma — Computer Science</h4>
+          <p>KIIT University — Bhubaneswar, Odisha</p>
+          <p style="font-size:13px;color:var(--body);margin-top:6px">Technical foundation in computer science, programming fundamentals, and systems design.</p>
+          <div class="edu-year">2010</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section style="background:#fff">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Leadership Philosophy</div>
+      <h2 class="section-title">How I Think About <span>Data & AI Leadership</span></h2>
+    </div>
+    <div class="philosophy-grid">
+      <div class="philosophy-card">
+        <div class="quote-mark">"</div>
+        <blockquote>Data capability without business outcome is noise. Every platform I build, every team I lead, and every AI system I deploy is anchored in one question: what decision does this enable, and what is it worth?</blockquote>
+        <cite>On value realization</cite>
+      </div>
+      <div class="philosophy-card">
+        <div class="quote-mark">"</div>
+        <blockquote>Governance is not a constraint on GenAI — it is the foundation that makes it trustworthy at scale. You cannot have 10,000 users on a Conversational AI platform without a semantic layer, data contracts, and a responsible AI framework. Trust is what scales.</blockquote>
+        <cite>On enterprise GenAI deployment</cite>
+      </div>
+      <div class="philosophy-card">
+        <div class="quote-mark">"</div>
+        <blockquote>The best analytics organizations are product-led, not project-led. When your data team thinks like a product team — with users, outcomes, adoption metrics, and a roadmap — you stop building reports and start building competitive advantage.</blockquote>
+        <cite>On analytics operating models</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="cta-section" id="contact">
+  <h2>Let's Build Something <span style="color:var(--teal-m)">Remarkable</span></h2>
+  <p>Available for Head of Data & AI, Director of Analytics, VP Analytics, and Principal Consultant roles.<br>Based in Bengaluru · Open to Pan-India & Hybrid opportunities.</p>
+  <div class="cta-buttons">
+    <a href="mailto:Chinmayadash.dash76@gmail.com" class="btn-primary">Get in Touch</a>
+    <a href="https://linkedin.com/in/chinmayadash" target="_blank" class="btn-outline">View LinkedIn Profile</a>
+  </div>
+  <div class="cta-contacts">
+    <a href="mailto:Chinmayadash.dash76@gmail.com" class="cta-contact">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Chinmayadash.dash76@gmail.com
+    </a>
+    <a href="tel:+917899508986" class="cta-contact">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +91 7899 508 986
+    </a>
+    <a href="https://linkedin.com/in/chinmayadash" target="_blank" class="cta-contact">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      linkedin.com/in/chinmayadash
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Chinmaya Dash</span> · Data, Analytics & AI Leader · Bengaluru, India</p>
+</footer>
+
+<script>
+// Active nav highlight on scroll
+const sections = document.querySelectorAll('section[id], div[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+      });
+    }
+  });
+}, { rootMargin: '-50% 0px -50% 0px' });
+sections.forEach(s => observer.observe(s));
+
+// Smooth counter animation for metrics
+function animateCounters() {
+  document.querySelectorAll('.metric-num').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(10px)';
+    el.style.transition = 'opacity 0.5s, transform 0.5s';
+    setTimeout(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 200 + Math.random() * 400);
+  });
+}
+window.addEventListener('load', animateCounters);
+</script>
+
+</body>
+</html>
